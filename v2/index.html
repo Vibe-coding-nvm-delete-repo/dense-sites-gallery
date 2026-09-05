@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beautiful, clean, info-dense sites - rate them (56)</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: Georgia, serif; background: #f4f1ea; color: #1c1a16; margin: 0; padding: 0 20px 60px; }
+  .wrap { max-width: 1400px; margin: 0 auto; }
+  h1 { font-size: 28px; margin: 24px 0 6px; }
+  .sub { color: #5b564a; margin: 0 0 12px; max-width: 78ch; }
+  .sub a { color: #1B365D; }
+  .toolbar { position: sticky; top: 0; z-index: 50; background: #1B365D; color: #fff; margin: 0 -20px; padding: 10px 20px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-family: Arial, sans-serif; }
+  .toolbar .counts { font-size: 13px; margin-right: 8px; }
+  .toolbar button { border: 1px solid #fff; background: transparent; color: #fff; border-radius: 20px; padding: 5px 12px; font-size: 13px; cursor: pointer; }
+  .toolbar button.on { background: #fff; color: #1B365D; }
+  .toolbar button.warn { border-color: #f0b429; }
+  h2.group { font-size: 22px; margin: 30px 0 12px; border-bottom: 2px solid #1B365D; padding-bottom: 4px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(370px, 1fr)); gap: 20px; }
+  .card { background: #fff; border: 3px solid #e2ddd1; border-radius: 10px; overflow: hidden; }
+  .card img { width: 100%; display: block; border-bottom: 1px solid #eee; background: #fff; }
+  .card.r1 { border-color: #1e7e34; }
+  .card.r2 { border-color: #e0a800; }
+  .card.r3, .card.r4 { border-color: #c82333; }
+  .card.r3 img, .card.r4 img { opacity: .45; }
+  .body { padding: 12px 14px 14px; }
+  .num { font-size: 12px; color: #8a8474; letter-spacing: 1px; }
+  .name { font-size: 18px; margin: 2px 0; }
+  .name a { color: #1B365D; text-decoration: none; }
+  .name a:hover { text-decoration: underline; }
+  .url { display: block; font-size: 12px; color: #1B365D; word-break: break-all; margin: 2px 0 4px; font-family: Arial, sans-serif; }
+  .kind { display: inline-block; font-size: 12px; background: #eef2f7; color: #1B365D; border-radius: 20px; padding: 2px 10px; margin: 4px 0 8px; font-family: Arial, sans-serif; }
+  p { font-size: 14px; line-height: 1.5; margin: 6px 0; font-family: Arial, sans-serif; }
+  .copy { background: #f7f3e8; border-left: 3px solid #b98a1d; padding: 8px 10px; font-size: 13px; }
+  .rate { margin-top: 10px; padding-top: 10px; border-top: 1px dashed #cfc9b8; font-family: Arial, sans-serif; font-size: 14px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .rate input { width: 64px; font-size: 18px; padding: 4px 6px; border: 2px solid #1B365D; border-radius: 6px; text-align: center; }
+  .rate .scale { font-size: 12px; color: #5b564a; }
+  .badge { font-size: 12px; font-weight: bold; border-radius: 4px; padding: 2px 8px; display: none; }
+  .r1 .badge { display: inline-block; background: #1e7e34; color: #fff; }
+  .r2 .badge { display: inline-block; background: #e0a800; color: #222; }
+  .r3 .badge, .r4 .badge { display: inline-block; background: #c82333; color: #fff; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Beautiful, clean, info-dense - 56 sites. Rate them.</h1>
+  <p class="sub">Type 1-4 in the box under each site. 1 = love it, 2 = keep but unsure, 3 = remove, 4 = remove. Your marks save in this browser automatically. Screenshots taken 2026-09-06. Full data: <a href="beautiful-dense-sites.xlsx">beautiful-dense-sites.xlsx</a>. Click any name to open the live site.</p>
+</div>
+<div class="toolbar" id="toolbar">
+  <span class="counts" id="counts"></span>
+  <button data-f="all" class="on">Show all</button>
+  <button data-f="ones">Only 1s</button>
+  <button data-f="onetwo">1s + 2s</button>
+  <button data-f="hide34">Hide 3s + 4s</button>
+  <button data-f="unrated">Unrated only</button>
+  <button id="exportBtn" class="warn">Export my 1s + 2s</button>
+  <button id="clearBtn">Clear all my ratings</button>
+</div>
+<div class="wrap">
+  <h2 class="group">Keeper (1)</h2>
+  <div class="grid">
+    <div class="card" data-id="s01">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s01-examine.png" alt="Examine" loading="lazy">
+      <div class="body">
+        <div class="num">01 - Keeper</div>
+        <div class="name"><a href="https://examine.com">Examine</a></div>
+        <a class="url" href="https://examine.com">https://examine.com</a>
+        <span class="kind">Evidence grades</span>
+        <p>Supplement and health claims graded by strength of proof. Minimal white and navy cards with evidence grades, no ads.</p>
+        <p class="copy">Copy: Evidence grades and linked references.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s01" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+  </div>
+  <h2 class="group">Health evidence (5)</h2>
+  <div class="grid">
+    <div class="card" data-id="s02">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s02-labdoor.png" alt="Labdoor" loading="lazy">
+      <div class="body">
+        <div class="num">02 - Health evidence</div>
+        <div class="name"><a href="https://labdoor.com/rankings/creatine">Labdoor</a></div>
+        <a class="url" href="https://labdoor.com/rankings/creatine">https://labdoor.com/rankings/creatine</a>
+        <span class="kind">Lab tester</span>
+        <p>Supplements bought retail and tested in chemistry labs, letter grades. Bright startup-clean rankings with big grades and product photos.</p>
+        <p class="copy">Copy: Retail-bought lab grades plus scoring method page.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s02" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s03">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s03-mskcc-herbs.png" alt="MSKCC About Herbs" loading="lazy">
+      <div class="body">
+        <div class="num">03 - Health evidence</div>
+        <div class="name"><a href="https://www.mskcc.org/cancer-care/diagnosis-treatment/symptom-management/integrative-medicine/herbs/search">MSKCC About Herbs</a></div>
+        <a class="url" href="https://www.mskcc.org/cancer-care/diagnosis-treatment/symptom-management/integrative-medicine/herbs/search">https://www.mskcc.org/cancer-care/diagnosis-treatment/symptom-management/integrative-medicine/herbs/search</a>
+        <span class="kind">Herb library</span>
+        <p>307 herb monographs with uses, actions, and drug clashes. Calm hospital design with large photos and clear cards.</p>
+        <p class="copy">Copy: Weekly pharmacist-updated monographs with references.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s03" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s04">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s04-drugbank.png" alt="DrugBank" loading="lazy">
+      <div class="body">
+        <div class="num">04 - Health evidence</div>
+        <div class="name"><a href="https://go.drugbank.com/drugs/DB00682">DrugBank</a></div>
+        <a class="url" href="https://go.drugbank.com/drugs/DB00682">https://go.drugbank.com/drugs/DB00682</a>
+        <span class="kind">Drug reference</span>
+        <p>Drug pages with uses, clashes, harm ratings, and evidence levels. Modern blue and white cards with sticky section menu.</p>
+        <p class="copy">Copy: Harm rating plus evidence level per interaction.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s04" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s05">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s05-harvard-nutrition.png" alt="Harvard Nutrition Source" loading="lazy">
+      <div class="body">
+        <div class="num">05 - Health evidence</div>
+        <div class="name"><a href="https://nutritionsource.hsph.harvard.edu/what-should-you-eat/protein/">Harvard Nutrition Source</a></div>
+        <a class="url" href="https://nutritionsource.hsph.harvard.edu/what-should-you-eat/protein/">https://nutritionsource.hsph.harvard.edu/what-should-you-eat/protein/</a>
+        <span class="kind">Nutrition guide</span>
+        <p>Food guides with package tables and disease tabs from large cohorts. Warm editorial design with custom graphics and quizzes.</p>
+        <p class="copy">Copy: Package tables plus numbered journal links.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s05" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s06">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s06-uspstf.png" alt="USPSTF Grades" loading="lazy">
+      <div class="body">
+        <div class="num">06 - Health evidence</div>
+        <div class="name"><a href="https://www.uspreventiveservicestaskforce.org/uspstf/grade-definitions">USPSTF Grades</a></div>
+        <a class="url" href="https://www.uspreventiveservicestaskforce.org/uspstf/grade-definitions">https://www.uspreventiveservicestaskforce.org/uspstf/grade-definitions</a>
+        <span class="kind">Guidelines</span>
+        <p>Prevention grades A to I with exact practice advice per grade. Simple government-clean tables, consumer and clinician views.</p>
+        <p class="copy">Copy: Public evidence reviews plus conflict disclosures.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s06" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+  </div>
+  <h2 class="group">Food (4)</h2>
+  <div class="grid">
+    <div class="card" data-id="s07">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s07-seriouseats.png" alt="Serious Eats Food Lab" loading="lazy">
+      <div class="body">
+        <div class="num">07 - Food</div>
+        <div class="name"><a href="https://www.seriouseats.com/the-food-lab-5118015">Serious Eats Food Lab</a></div>
+        <a class="url" href="https://www.seriouseats.com/the-food-lab-5118015">https://www.seriouseats.com/the-food-lab-5118015</a>
+        <span class="kind">Tested cooking</span>
+        <p>Hundreds of controlled kitchen experiments with variables shown. Clean magazine layout with step photos and failure modes.</p>
+        <p class="copy">Copy: Method-first testing with side by side variables.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s07" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s08">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s08-fooddata.png" alt="USDA FoodData Central" loading="lazy">
+      <div class="body">
+        <div class="num">08 - Food</div>
+        <div class="name"><a href="https://fdc.nal.usda.gov/">USDA FoodData Central</a></div>
+        <a class="url" href="https://fdc.nal.usda.gov/">https://fdc.nal.usda.gov/</a>
+        <span class="kind">Nutrient data</span>
+        <p>Hundreds of thousands of foods with tens of millions of values. Official clean search with high contrast filter tables.</p>
+        <p class="copy">Copy: Open downloads plus public domain license.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s08" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s09">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s09-baristahustle.png" alt="Barista Hustle" loading="lazy">
+      <div class="body">
+        <div class="num">09 - Food</div>
+        <div class="name"><a href="https://www.baristahustle.com/">Barista Hustle</a></div>
+        <a class="url" href="https://www.baristahustle.com/">https://www.baristahustle.com/</a>
+        <span class="kind">Coffee school</span>
+        <p>Espresso and roasting courses with extraction math and calculators. Modern coaching site with crisp course cards and lessons.</p>
+        <p class="copy">Copy: Literature-backed curriculum with instrumented tests.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s09" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s10">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s10-stilltasty.png" alt="StillTasty" loading="lazy">
+      <div class="body">
+        <div class="num">10 - Food</div>
+        <div class="name"><a href="https://stilltasty.com/">StillTasty</a></div>
+        <a class="url" href="https://stilltasty.com/">https://stilltasty.com/</a>
+        <span class="kind">Shelf life</span>
+        <p>Thousands of items with fridge, freezer, and pantry times. Bright simple icon grid with short clear pages.</p>
+        <p class="copy">Copy: Sources page naming USDA, FDA, and CDC.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s10" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+  </div>
+  <h2 class="group">Skincare (5)</h2>
+  <div class="grid">
+    <div class="card" data-id="s11">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s11-incidecoder.png" alt="INCIDecoder" loading="lazy">
+      <div class="body">
+        <div class="num">11 - Skincare</div>
+        <div class="name"><a href="https://incidecoder.com/">INCIDecoder</a></div>
+        <a class="url" href="https://incidecoder.com/">https://incidecoder.com/</a>
+        <span class="kind">Ingredient DB</span>
+        <p>Ingredient explainers with use levels and linked product lists. Clean white layout with pastel badges and large photos.</p>
+        <p class="copy">Copy: Proof list to dermatology journals per ingredient.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s11" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s12">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s12-labmuffin.png" alt="Lab Muffin" loading="lazy">
+      <div class="body">
+        <div class="num">12 - Skincare</div>
+        <div class="name"><a href="https://labmuffin.com/">Lab Muffin</a></div>
+        <a class="url" href="https://labmuffin.com/">https://labmuffin.com/</a>
+        <span class="kind">Science blog</span>
+        <p>Deep dives on sunscreen and actives from a chemistry PhD. Clean cards with consistent long-form article pages.</p>
+        <p class="copy">Copy: Further reading from 30 plus papers per post.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s12" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s13">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s13-skinsort.png" alt="SkinSort" loading="lazy">
+      <div class="body">
+        <div class="num">13 - Skincare</div>
+        <div class="name"><a href="https://skinsort.com/ingredients">SkinSort</a></div>
+        <a class="url" href="https://skinsort.com/ingredients">https://skinsort.com/ingredients</a>
+        <span class="kind">Ingredient DB</span>
+        <p>29,326 ingredients with benefits, concerns, and analyzer tools. Modern card grid with custom benefit icons.</p>
+        <p class="copy">Copy: PubMed references plus dupe finder and compare.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s13" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s14">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s14-kindofstephen.png" alt="KindofStephen" loading="lazy">
+      <div class="body">
+        <div class="num">14 - Skincare</div>
+        <div class="name"><a href="https://www.kindofstephen.com/">KindofStephen</a></div>
+        <a class="url" href="https://www.kindofstephen.com/">https://www.kindofstephen.com/</a>
+        <span class="kind">Formulator blog</span>
+        <p>Formulator-level posts with pH and SPF math, all footnoted. Simple white theme with inline diagrams, no clutter.</p>
+        <p class="copy">Copy: Numbered PubMed links plus chemical glossary.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s14" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s15">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s15-ecowell.png" alt="The Eco Well" loading="lazy">
+      <div class="body">
+        <div class="num">15 - Skincare</div>
+        <div class="name"><a href="https://www.theecowell.com/">The Eco Well</a></div>
+        <a class="url" href="https://www.theecowell.com/">https://www.theecowell.com/</a>
+        <span class="kind">Expert panels</span>
+        <p>Roundtables on sunscreen and contaminants with PhD guests. Calm magazine layout with replay libraries and notes.</p>
+        <p class="copy">Copy: Free full-day science summit, no product sales.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s15" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+  </div>
+  <h2 class="group">Money (5)</h2>
+  <div class="grid">
+    <div class="card" data-id="s16">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s16-investopedia.png" alt="Investopedia" loading="lazy">
+      <div class="body">
+        <div class="num">16 - Money</div>
+        <div class="name"><a href="https://www.investopedia.com/terms/c/compoundinterest.asp">Investopedia</a></div>
+        <a class="url" href="https://www.investopedia.com/terms/c/compoundinterest.asp">https://www.investopedia.com/terms/c/compoundinterest.asp</a>
+        <span class="kind">Explain finance</span>
+        <p>Money guides with formulas, worked math, and calculators. Clean page with takeaways box and table of contents.</p>
+        <p class="copy">Copy: Author plus reviewer plus fact checker credits.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s16" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s17">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s17-askcfpb.png" alt="Ask CFPB" loading="lazy">
+      <div class="body">
+        <div class="num">17 - Money</div>
+        <div class="name"><a href="https://www.consumerfinance.gov/ask-cfpb/">Ask CFPB</a></div>
+        <a class="url" href="https://www.consumerfinance.gov/ask-cfpb/">https://www.consumerfinance.gov/ask-cfpb/</a>
+        <span class="kind">Official answers</span>
+        <p>Plain answers on credit and mortgages with review dates. Navy and white design with short tidy sections.</p>
+        <p class="copy">Copy: Federal agency answers with legal disclaimer.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s17" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s18">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s18-investor-gov.png" alt="Investor.gov Calculator" loading="lazy">
+      <div class="body">
+        <div class="num">18 - Money</div>
+        <div class="name"><a href="https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator">Investor.gov Calculator</a></div>
+        <a class="url" href="https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator">https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator</a>
+        <span class="kind">Calculator</span>
+        <p>Stepped compound interest tool with quizzes and goal tools. Clean form with labels and explainers, no ads.</p>
+        <p class="copy">Copy: Official regulator tool with learning cards.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s18" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s19">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s19-fred.png" alt="FRED Economic Data" loading="lazy">
+      <div class="body">
+        <div class="num">19 - Money</div>
+        <div class="name"><a href="https://fred.stlouisfed.org/">FRED Economic Data</a></div>
+        <a class="url" href="https://fred.stlouisfed.org/">https://fred.stlouisfed.org/</a>
+        <span class="kind">Data charts</span>
+        <p>800k plus time series with clean graphs you can share. Official charts with one-click graph and download tools.</p>
+        <p class="copy">Copy: Graph plus units plus source notes per series.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s19" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s20">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s20-bankrate.png" alt="Bankrate Mortgage Calc" loading="lazy">
+      <div class="body">
+        <div class="num">20 - Money</div>
+        <div class="name"><a href="https://www.bankrate.com/mortgages/mortgage-calculator/">Bankrate Mortgage Calc</a></div>
+        <a class="url" href="https://www.bankrate.com/mortgages/mortgage-calculator/">https://www.bankrate.com/mortgages/mortgage-calculator/</a>
+        <span class="kind">Calculator</span>
+        <p>Mortgage math with amortization formula and cost tabs. Clean calculator with auto-updating charts.</p>
+        <p class="copy">Copy: Licensed lender ID plus advertiser disclosure.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s20" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+  </div>
+  <h2 class="group">Mattress reviews (5)</h2>
+  <div class="grid">
+    <div class="card" data-id="s21">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s21-sleepfoundation.png" alt="Sleep Foundation" loading="lazy">
+      <div class="body">
+        <div class="num">21 - Mattress reviews</div>
+        <div class="name"><a href="https://www.sleepfoundation.org/best-mattress">Sleep Foundation</a></div>
+        <a class="url" href="https://www.sleepfoundation.org/best-mattress">https://www.sleepfoundation.org/best-mattress</a>
+        <span class="kind">Test lab</span>
+        <p>2,000 plus bed database with 9 sleeper-type scores per pick. White editorial layout with sticky picks rail and score badges.</p>
+        <p class="copy">Copy: Seattle lab plus home field tests, method published.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s21" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s22">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s22-naplab.png" alt="NapLab" loading="lazy">
+      <div class="body">
+        <div class="num">22 - Mattress reviews</div>
+        <div class="name"><a href="https://naplab.com/mattress-reviews/">NapLab</a></div>
+        <a class="url" href="https://naplab.com/mattress-reviews/">https://naplab.com/mattress-reviews/</a>
+        <span class="kind">Data tables</span>
+        <p>460 plus mattresses, 10 tests and 64 data points each. Minimal black and pink system with sortable master table.</p>
+        <p class="copy">Copy: Versioned scoring with weights plus side by side tool.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s22" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s23">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s23-mattressclarity.png" alt="Mattress Clarity" loading="lazy">
+      <div class="body">
+        <div class="num">23 - Mattress reviews</div>
+        <div class="name"><a href="https://www.mattressclarity.com/reviews/best-mattress/">Mattress Clarity</a></div>
+        <a class="url" href="https://www.mattressclarity.com/reviews/best-mattress/">https://www.mattressclarity.com/reviews/best-mattress/</a>
+        <span class="kind">Studio tests</span>
+        <p>600 plus reviewed with pressure-mat PSI maps per bed. Airy cards with detail boxes and pros and cons callouts.</p>
+        <p class="copy">Copy: Separate method pages with thresholds per factor.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s23" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s24">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s24-sleepopolis.png" alt="Sleepopolis" loading="lazy">
+      <div class="body">
+        <div class="num">24 - Mattress reviews</div>
+        <div class="name"><a href="https://sleepopolis.com/best-mattress/">Sleepopolis</a></div>
+        <a class="url" href="https://sleepopolis.com/best-mattress/">https://sleepopolis.com/best-mattress/</a>
+        <span class="kind">Lab reviews</span>
+        <p>500 plus tested with pressure maps and versus pages. Polished blue cards with heat images and video reviews.</p>
+        <p class="copy">Copy: Lab plus at-home tests, expert network verified.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s24" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s25">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s25-mattressnerd.png" alt="Mattress Nerd" loading="lazy">
+      <div class="body">
+        <div class="num">25 - Mattress reviews</div>
+        <div class="name"><a href="https://www.mattressnerd.com/best-mattress/">Mattress Nerd</a></div>
+        <a class="url" href="https://www.mattressnerd.com/best-mattress/">https://www.mattressnerd.com/best-mattress/</a>
+        <span class="kind">Lab reviews</span>
+        <p>200 plus beds with cut-open durability checks. Clean grid with tester quotes and sleeper-type chips.</p>
+        <p class="copy">Copy: Certified coaches protocol with factor tables.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s25" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+  </div>
+  <h2 class="group">Mattress brands (5)</h2>
+  <div class="grid">
+    <div class="card" data-id="s26">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s26-saatva.png" alt="Saatva Classic" loading="lazy">
+      <div class="body">
+        <div class="num">26 - Mattress brands</div>
+        <div class="name"><a href="https://www.saatva.com/mattresses/saatva-classic">Saatva Classic</a></div>
+        <a class="url" href="https://www.saatva.com/mattresses/saatva-classic">https://www.saatva.com/mattresses/saatva-classic</a>
+        <span class="kind">Brand page</span>
+        <p>Luxury hybrid with layer carousel and comfort selector. Hotel storytelling with quilted close-ups, still premium.</p>
+        <p class="copy">Copy: Firmness picker tied to sleeper guidance, 30 plus FAQs.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s26" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s27">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s27-avocado.png" alt="Avocado Green" loading="lazy">
+      <div class="body">
+        <div class="num">27 - Mattress brands</div>
+        <div class="name"><a href="https://www.avocadogreenmattress.com/products/green-natural-organic-mattress">Avocado Green</a></div>
+        <a class="url" href="https://www.avocadogreenmattress.com/products/green-natural-organic-mattress">https://www.avocadogreenmattress.com/products/green-natural-organic-mattress</a>
+        <span class="kind">Brand page</span>
+        <p>Organic latex with farm traceability and craft story. Warm natural photography with clear firmness cards.</p>
+        <p class="copy">Copy: Certs with license numbers, latex depth per model.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s27" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s28">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s28-purple.png" alt="Purple" loading="lazy">
+      <div class="body">
+        <div class="num">28 - Mattress brands</div>
+        <div class="name"><a href="https://purple.com/mattresses/purple-bed">Purple</a></div>
+        <a class="url" href="https://purple.com/mattresses/purple-bed">https://purple.com/mattresses/purple-bed</a>
+        <span class="kind">Brand page</span>
+        <p>Grid tech with exploded views and comfort slider. Pressure storytelling around 1,400 plus buckling columns.</p>
+        <p class="copy">Copy: Per-layer what and why plus honest compare table.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s28" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s29">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s29-winkbeds.png" alt="WinkBeds" loading="lazy">
+      <div class="body">
+        <div class="num">29 - Mattress brands</div>
+        <div class="name"><a href="https://www.winkbeds.com/pages/shop-winkbed">WinkBeds</a></div>
+        <a class="url" href="https://www.winkbeds.com/pages/shop-winkbed">https://www.winkbeds.com/pages/shop-winkbed</a>
+        <span class="kind">Brand page</span>
+        <p>Hybrid with 4 firmnesses and press badge hero. Crafted-in-USA imagery with inline size dims.</p>
+        <p class="copy">Copy: Review summaries by attribute with counts.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s29" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s30">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s30-helix.png" alt="Helix Midnight Luxe" loading="lazy">
+      <div class="body">
+        <div class="num">30 - Mattress brands</div>
+        <div class="name"><a href="https://helixsleep.com/products/midnight-luxe">Helix Midnight Luxe</a></div>
+        <a class="url" href="https://helixsleep.com/products/midnight-luxe">https://helixsleep.com/products/midnight-luxe</a>
+        <span class="kind">Brand page</span>
+        <p>Quiz-matched hybrid with cooling cover upgrades story. Clean 14-model lineup that funnels by sleeper type.</p>
+        <p class="copy">Copy: Midnight versus Luxe side by side diff table.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s30" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+  </div>
+  <h2 class="group">Lab-test reviews (7)</h2>
+  <div class="grid">
+    <div class="card" data-id="s31">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s31-wirecutter.png" alt="Wirecutter" loading="lazy">
+      <div class="body">
+        <div class="num">31 - Lab-test reviews</div>
+        <div class="name"><a href="https://www.nytimes.com/wirecutter/reviews/anatomy-of-a-guide/">Wirecutter</a></div>
+        <a class="url" href="https://www.nytimes.com/wirecutter/reviews/anatomy-of-a-guide/">https://www.nytimes.com/wirecutter/reviews/anatomy-of-a-guide/</a>
+        <span class="kind">Guide system</span>
+        <p>1,300 plus guides with pick versus runner-up deltas. NYT calm type with Trust and Flaws scaffold.</p>
+        <p class="copy">Copy: How we tested per guide plus scout reports.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s31" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s32">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s32-dpreview.png" alt="DPReview" loading="lazy">
+      <div class="body">
+        <div class="num">32 - Lab-test reviews</div>
+        <div class="name"><a href="https://www.dpreview.com/image-comparison/">DPReview</a></div>
+        <a class="url" href="https://www.dpreview.com/image-comparison/">https://www.dpreview.com/image-comparison/</a>
+        <span class="kind">Camera lab</span>
+        <p>Studio scene comparator at every ISO, RAW included. Open layout with large samples and zoom panes.</p>
+        <p class="copy">Copy: Published studio method, same targets per camera.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s32" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s33">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s33-gsmarena.png" alt="GSMArena" loading="lazy">
+      <div class="body">
+        <div class="num">33 - Lab-test reviews</div>
+        <div class="name"><a href="https://www.gsmarena.com/">GSMArena</a></div>
+        <a class="url" href="https://www.gsmarena.com/">https://www.gsmarena.com/</a>
+        <span class="kind">Phone lab</span>
+        <p>Same battery, display, and charging charts per phone. White cards with plain compare tables.</p>
+        <p class="copy">Copy: One lab routine so results compare across reviews.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s33" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s34">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s34-soundguys.png" alt="SoundGuys" loading="lazy">
+      <div class="body">
+        <div class="num">34 - Lab-test reviews</div>
+        <div class="name"><a href="https://www.soundguys.com/how-we-test/">SoundGuys</a></div>
+        <a class="url" href="https://www.soundguys.com/how-we-test/">https://www.soundguys.com/how-we-test/</a>
+        <span class="kind">Audio lab</span>
+        <p>57,000-point sweeps on a model head per headphone. Minimal theme with annotated lab photos.</p>
+        <p class="copy">Copy: Published rig plus fixed 75 dB battery test.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s34" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s35">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s35-housefresh.png" alt="HouseFresh" loading="lazy">
+      <div class="body">
+        <div class="num">35 - Lab-test reviews</div>
+        <div class="name"><a href="https://housefresh.com/how-we-test-air-purifiers/">HouseFresh</a></div>
+        <a class="url" href="https://housefresh.com/how-we-test-air-purifiers/">https://housefresh.com/how-we-test-air-purifiers/</a>
+        <span class="kind">Air lab</span>
+        <p>Same-room particle tests with running-cost math. Bright minimal design with filmed test graphs.</p>
+        <p class="copy">Copy: Ranked leaderboard plus weighted scorecard.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s35" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s36">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s36-notebookcheck.png" alt="Notebookcheck" loading="lazy">
+      <div class="body">
+        <div class="num">36 - Lab-test reviews</div>
+        <div class="name"><a href="https://www.notebookcheck.net/">Notebookcheck</a></div>
+        <a class="url" href="https://www.notebookcheck.net/">https://www.notebookcheck.net/</a>
+        <span class="kind">Laptop lab</span>
+        <p>Brightness, heat, noise, and battery per laptop. Structured sections with tidy tables each time.</p>
+        <p class="copy">Copy: Light meters plus flicker check, standard suite.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s36" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s37">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s37-tftcentral.png" alt="TFTCentral" loading="lazy">
+      <div class="body">
+        <div class="num">37 - Lab-test reviews</div>
+        <div class="name"><a href="https://tftcentral.co.uk/">TFTCentral</a></div>
+        <a class="url" href="https://tftcentral.co.uk/">https://tftcentral.co.uk/</a>
+        <span class="kind">Monitor lab</span>
+        <p>Color maps and motion traces plus free profiles. Quiet white layout with calm spec tables.</p>
+        <p class="copy">Copy: Profile file shared per review.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s37" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+  </div>
+  <h2 class="group">Home (4)</h2>
+  <div class="grid">
+    <div class="card" data-id="s38">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s38-vacuumwars.png" alt="Vacuum Wars" loading="lazy">
+      <div class="body">
+        <div class="num">38 - Home</div>
+        <div class="name"><a href="https://vacuumwars.com/robot-vacuums">Vacuum Wars</a></div>
+        <a class="url" href="https://vacuumwars.com/robot-vacuums">https://vacuumwars.com/robot-vacuums</a>
+        <span class="kind">Vacuum lab</span>
+        <p>205 plus robots bought retail with live top-20 ranks. Podium cards with score badges and studio shots.</p>
+        <p class="copy">Copy: Numeric score per test plus retest log.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s38" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s39">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s39-thuma.png" alt="Thuma" loading="lazy">
+      <div class="body">
+        <div class="num">39 - Home</div>
+        <div class="name"><a href="https://www.thuma.co/products/classic-bed">Thuma</a></div>
+        <a class="url" href="https://www.thuma.co/products/classic-bed">https://www.thuma.co/products/classic-bed</a>
+        <span class="kind">Brand page</span>
+        <p>Joinery bed with tabs for dims and materials. Japandi minimalism with warm gallery light.</p>
+        <p class="copy">Copy: Craft plus certs plus exact clearance in tabs.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s39" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s40">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s40-parachute.png" alt="Parachute Fabric Guide" loading="lazy">
+      <div class="body">
+        <div class="num">40 - Home</div>
+        <div class="name"><a href="https://www.parachutehome.com/blogs/posts/fabric-materials-guide">Parachute Fabric Guide</a></div>
+        <a class="url" href="https://www.parachutehome.com/blogs/posts/fabric-materials-guide">https://www.parachutehome.com/blogs/posts/fabric-materials-guide</a>
+        <span class="kind">Brand guide</span>
+        <p>Weave and fiber teaching that links to collections. Airy editorial style with soft neutrals.</p>
+        <p class="copy">Copy: Shop by feel picker for hot and cold sleepers.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s40" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s41">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s41-burrow.png" alt="Burrow Nomad" loading="lazy">
+      <div class="body">
+        <div class="num">41 - Home</div>
+        <div class="name"><a href="https://burrow.com/products/nomad-sofa">Burrow Nomad</a></div>
+        <a class="url" href="https://burrow.com/products/nomad-sofa">https://burrow.com/products/nomad-sofa</a>
+        <span class="kind">Brand page</span>
+        <p>Modular sofa with configurator and dimension tables. Calm UI with lifestyle plus detail shots.</p>
+        <p class="copy">Copy: Full dims plus materials and certs in one scroll.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s41" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+  </div>
+  <h2 class="group">Outdoor (5)</h2>
+  <div class="grid">
+    <div class="card" data-id="s42">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s42-outdoorgearlab.png" alt="OutdoorGearLab" loading="lazy">
+      <div class="body">
+        <div class="num">42 - Outdoor</div>
+        <div class="name"><a href="https://www.outdoorgearlab.com/">OutdoorGearLab</a></div>
+        <a class="url" href="https://www.outdoorgearlab.com/">https://www.outdoorgearlab.com/</a>
+        <span class="kind">Gear lab</span>
+        <p>Self-bought gear with weighted score tables. White magazine layout with field-test heroes.</p>
+        <p class="copy">Copy: How We Tested plus weighted metrics.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s42" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s43">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s43-switchback.png" alt="Switchback Travel" loading="lazy">
+      <div class="body">
+        <div class="num">43 - Outdoor</div>
+        <div class="name"><a href="https://www.switchbacktravel.com/">Switchback Travel</a></div>
+        <a class="url" href="https://www.switchbacktravel.com/">https://www.switchbacktravel.com/</a>
+        <span class="kind">Field reviews</span>
+        <p>Best-of guides with spec tables and trail reviews. Full-bleed mountain slides with uniform teasers.</p>
+        <p class="copy">Copy: Miles and places cited per review.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s43" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s44">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s44-runrepeat.png" alt="RunRepeat" loading="lazy">
+      <div class="body">
+        <div class="num">44 - Outdoor</div>
+        <div class="name"><a href="https://runrepeat.com/">RunRepeat</a></div>
+        <a class="url" href="https://runrepeat.com/">https://runrepeat.com/</a>
+        <span class="kind">Shoe lab</span>
+        <p>1,000 plus shoes cut in half, 30 plus lab points each. Lab-catalog cards with cut-open shoe photos.</p>
+        <p class="copy">Copy: Published method with ISO and ASTM tests.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s44" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s45">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s45-bikeradar.png" alt="BikeRadar" loading="lazy">
+      <div class="body">
+        <div class="num">45 - Outdoor</div>
+        <div class="name"><a href="https://www.bikeradar.com/">BikeRadar</a></div>
+        <a class="url" href="https://www.bikeradar.com/">https://www.bikeradar.com/</a>
+        <span class="kind">Bike reviews</span>
+        <p>Scored reviews plus versus shootouts and best lists. Polished mag front with large hero shots.</p>
+        <p class="copy">Copy: Months-long tests with standard format.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s45" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s46">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s46-cleverhiker.png" alt="CleverHiker" loading="lazy">
+      <div class="body">
+        <div class="num">46 - Outdoor</div>
+        <div class="name"><a href="https://www.cleverhiker.com/">CleverHiker</a></div>
+        <a class="url" href="https://www.cleverhiker.com/">https://www.cleverhiker.com/</a>
+        <span class="kind">Trail reviews</span>
+        <p>Tents and bags tested over thousands of nights. Airy tutorial look with field photos.</p>
+        <p class="copy">Copy: No payments for reviews, stated policy.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s46" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+  </div>
+  <h2 class="group">Baby and pet (5)</h2>
+  <div class="grid">
+    <div class="card" data-id="s47">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s47-babygearlab.png" alt="BabyGearLab car seats" loading="lazy">
+      <div class="body">
+        <div class="num">47 - Baby and pet</div>
+        <div class="name"><a href="https://www.babygearlab.com/topics/vehicle-safety/best-infant-car-seat">BabyGearLab car seats</a></div>
+        <a class="url" href="https://www.babygearlab.com/topics/vehicle-safety/best-infant-car-seat">https://www.babygearlab.com/topics/vehicle-safety/best-infant-car-seat</a>
+        <span class="kind">Crash tests</span>
+        <p>1,037 tests on 15 seats with sensor charts. Soft white layout with rounded score cards.</p>
+        <p class="copy">Copy: NHTSA-lab crash tests, 2 units per model.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s47" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s48">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s48-carseatlady.png" alt="The Car Seat Lady" loading="lazy">
+      <div class="body">
+        <div class="num">48 - Baby and pet</div>
+        <div class="name"><a href="https://thecarseatlady.com/car-seat-buying-guide/">The Car Seat Lady</a></div>
+        <a class="url" href="https://thecarseatlady.com/car-seat-buying-guide/">https://thecarseatlady.com/car-seat-buying-guide/</a>
+        <span class="kind">Safety guide</span>
+        <p>Use-case picks plus fit checklists, plain language. Simple white-blue design, no ads or sliders.</p>
+        <p class="copy">Copy: Pediatrician run, zero sponsorship.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s48" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s49">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s49-pediatricpicks.png" alt="Pediatric Picks" loading="lazy">
+      <div class="body">
+        <div class="num">49 - Baby and pet</div>
+        <div class="name"><a href="https://pediatricpicks.com/how-we-test/">Pediatric Picks</a></div>
+        <a class="url" href="https://pediatricpicks.com/how-we-test/">https://pediatricpicks.com/how-we-test/</a>
+        <span class="kind">Method hub</span>
+        <p>Every category mapped to its ASTM safety rule. Soft modern cards with honest verdicts.</p>
+        <p class="copy">Copy: Retail-bought, recall pull within 24 hours.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s49" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s50">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s50-dogfoodadvisor.png" alt="DogFoodAdvisor" loading="lazy">
+      <div class="body">
+        <div class="num">50 - Baby and pet</div>
+        <div class="name"><a href="https://www.dogfoodadvisor.com/dog-food-reviews/acana-dog-food-dry/">DogFoodAdvisor</a></div>
+        <a class="url" href="https://www.dogfoodadvisor.com/dog-food-reviews/acana-dog-food-dry/">https://www.dogfoodadvisor.com/dog-food-reviews/acana-dog-food-dry/</a>
+        <span class="kind">Pet food DB</span>
+        <p>Dry-matter math plus recall history per recipe. Clean dashboard dials with consistent tables.</p>
+        <p class="copy">Copy: Nutritionist verified, method disclosed.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s50" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s51">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s51-cleanlabel.png" alt="Clean Label Project" loading="lazy">
+      <div class="body">
+        <div class="num">51 - Baby and pet</div>
+        <div class="name"><a href="https://cleanlabelproject.org/dog-food-study/">Clean Label Project</a></div>
+        <a class="url" href="https://cleanlabelproject.org/dog-food-study/">https://cleanlabelproject.org/dog-food-study/</a>
+        <span class="kind">Contaminant lab</span>
+        <p>11,376 tests for metals and chemicals, method published. Bright nonprofit report design with infographics.</p>
+        <p class="copy">Copy: ISO lab partner, full whitepaper public.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s51" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+  </div>
+  <h2 class="group">Cars and travel (5)</h2>
+  <div class="grid">
+    <div class="card" data-id="s52">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s52-edmunds.png" alt="Edmunds Tested" loading="lazy">
+      <div class="body">
+        <div class="num">52 - Cars and travel</div>
+        <div class="name"><a href="https://www.edmunds.com/car-reviews/car-reviews-road-tests.html">Edmunds Tested</a></div>
+        <a class="url" href="https://www.edmunds.com/car-reviews/car-reviews-road-tests.html">https://www.edmunds.com/car-reviews/car-reviews-road-tests.html</a>
+        <span class="kind">Car lab</span>
+        <p>Instrumented 0-60 and braking tables per review. Premium white layout with hero photography.</p>
+        <p class="copy">Copy: Own test track plus 10-point rating.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s52" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s53">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s53-autobuyers.png" alt="Auto Buyers Guide" loading="lazy">
+      <div class="body">
+        <div class="num">53 - Cars and travel</div>
+        <div class="name"><a href="https://autobuyersguide.com/">Auto Buyers Guide</a></div>
+        <a class="url" href="https://autobuyersguide.com/">https://autobuyersguide.com/</a>
+        <span class="kind">Shopper tests</span>
+        <p>Cargo and dimension tests for real shoppers. Minimal text-first tables mirroring videos.</p>
+        <p class="copy">Copy: Back-to-back segment comparisons.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s53" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s54">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s54-oyster.png" alt="Oyster" loading="lazy">
+      <div class="body">
+        <div class="num">54 - Cars and travel</div>
+        <div class="name"><a href="https://www.oyster.com/">Oyster</a></div>
+        <a class="url" href="https://www.oyster.com/">https://www.oyster.com/</a>
+        <span class="kind">Hotel reviews</span>
+        <p>10,000 plus hotels with investigator photos. Bright design with side by side photo compare.</p>
+        <p class="copy">Copy: Investigators stay overnight and rate in context.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s54" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s55">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s55-thepointsguy.png" alt="The Points Guy" loading="lazy">
+      <div class="body">
+        <div class="num">55 - Cars and travel</div>
+        <div class="name"><a href="https://thepointsguy.com/">The Points Guy</a></div>
+        <a class="url" href="https://thepointsguy.com/">https://thepointsguy.com/</a>
+        <span class="kind">Points reviews</span>
+        <p>Airline and hotel reviews with monthly points valuations. Bold editorial cards with deal and review rails.</p>
+        <p class="copy">Copy: Valuation tables plus applied redemption tests.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s55" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+    <div class="card" data-id="s56">
+      <img src="https://vibe-coding-nvm-delete-repo.github.io/dense-sites-gallery/v2/s56-porsche.png" alt="Porsche 911" loading="lazy">
+      <div class="body">
+        <div class="num">56 - Cars and travel</div>
+        <div class="name"><a href="https://www.porsche.com/usa/models/911/">Porsche 911</a></div>
+        <a class="url" href="https://www.porsche.com/usa/models/911/">https://www.porsche.com/usa/models/911/</a>
+        <span class="kind">Brand page</span>
+        <p>20 plus variants compared with factory specs. Full-bleed studio imagery, quiet type.</p>
+        <p class="copy">Copy: Factory truth with downloadable build PDF.</p>
+        <div class="rate"><label>My rating (1-4) <input type="number" min="1" max="4" step="1" data-id="s56" placeholder="-"></label><span class="scale">1 love it, 2 keep unsure, 3 remove, 4 remove</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  var KEY = 'beauty-ratings-v1';
+  var ratings = {};
+  try { ratings = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { ratings = {}; }
+  var filter = 'all';
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(ratings)); } catch (e) {} }
+  function match(id, r) {
+    if (filter === 'all') return true;
+    if (filter === 'ones') return r === 1;
+    if (filter === 'onetwo') return r === 1 || r === 2;
+    if (filter === 'hide34') return r !== 3 && r !== 4;
+    if (filter === 'unrated') return !r;
+    return true;
+  }
+  function paint() {
+    var c1 = 0, c2 = 0, c3 = 0, c4 = 0, cu = 0;
+    cards.forEach(function (card) {
+      var id = card.getAttribute('data-id');
+      var r = ratings[id];
+      card.classList.remove('r1', 'r2', 'r3', 'r4');
+      var inp = card.querySelector('input');
+      if (r) {
+        card.classList.add('r' + r);
+        if (String(inp.value) !== String(r)) inp.value = r;
+        if (r === 1) c1++; else if (r === 2) c2++; else if (r === 3) c3++; else c4++;
+      } else {
+        cu++;
+        if (inp.value !== '') inp.value = '';
+      }
+      card.style.display = match(id, r) ? '' : 'none';
+    });
+    document.querySelectorAll('h2.group').forEach(function (h) {
+      var grid = h.nextElementSibling;
+      var any = false;
+      grid.querySelectorAll('.card').forEach(function (c) { if (c.style.display !== 'none') any = true; });
+      h.style.display = any ? '' : 'none';
+      grid.style.display = any ? '' : 'none';
+    });
+    document.getElementById('counts').textContent = 'Rated 1: ' + c1 + ' | 2: ' + c2 + ' | 3: ' + c3 + ' | 4: ' + c4 + ' | Unrated: ' + cu;
+  }
+  cards.forEach(function (card) {
+    var id = card.getAttribute('data-id');
+    card.querySelector('input').addEventListener('input', function (e) {
+      var v = parseInt(e.target.value, 10);
+      if (isNaN(v)) { delete ratings[id]; }
+      else { v = Math.max(1, Math.min(4, v)); ratings[id] = v; }
+      save(); paint();
+    });
+  });
+  document.querySelectorAll('#toolbar button[data-f]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      filter = b.getAttribute('data-f');
+      document.querySelectorAll('#toolbar button[data-f]').forEach(function (x) { x.classList.remove('on'); });
+      b.classList.add('on');
+      paint();
+    });
+  });
+  document.getElementById('clearBtn').addEventListener('click', function () {
+    if (!confirm('Clear all your ratings?')) return;
+    ratings = {}; save(); paint();
+  });
+  document.getElementById('exportBtn').addEventListener('click', function () {
+    var ones = [], twos = [];
+    cards.forEach(function (card) {
+      var id = card.getAttribute('data-id');
+      var r = ratings[id];
+      if (r !== 1 && r !== 2) return;
+      var name = card.querySelector('.name a').textContent;
+      var url = card.querySelector('.name a').href;
+      (r === 1 ? ones : twos).push((r === 1 ? '1 KEEP STAR: ' : '2 KEEP MAYBE: ') + name + ' - ' + url);
+    });
+    var text = 'MY 1s (love it, keep):\n' + (ones.join('\n') || '(none)') + '\n\nMY 2s (keep, unsure):\n' + (twos.join('\n') || '(none)');
+    try {
+      var blob = new Blob([text], { type: 'text/plain' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'my-site-picks.txt';
+      a.click();
+    } catch (e) {}
+    if (navigator.clipboard) { navigator.clipboard.writeText(text).catch(function () {}); }
+    alert('Exported ' + ones.length + ' ones and ' + twos.length + ' twos. File downloaded and copied to clipboard - paste it back in chat.');
+  });
+  paint();
+})();
+</script>
+</body>
+</html>
