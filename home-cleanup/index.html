@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home cleanup slice 1 - before and after preview</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; background: #f4f1ea; color: #1c1a16; margin: 0; padding: 0 20px 60px; }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  h1 { font-family: Georgia, serif; font-size: 28px; margin: 24px 0 6px; }
+  .honest { background: #fff8e6; border-left: 4px solid #b98a1d; padding: 10px 14px; font-size: 14px; line-height: 1.55; margin: 12px 0 24px; }
+  h2 { font-family: Georgia, serif; font-size: 22px; margin: 34px 0 4px; }
+  .why { color: #5b564a; font-size: 14px; margin: 0 0 12px; max-width: 80ch; }
+  .src { font-size: 12px; color: #1B365D; margin: 8px 0 0; }
+  .shot { border: 1px solid #cfc9b8; border-radius: 8px; overflow: hidden; background: #fff; margin: 12px 0; }
+  .shot img { width: 100%; display: block; }
+  .demo { background: #faf7f0; border: 1px solid #cfc9b8; border-radius: 8px; padding: 24px; margin: 12px 0; }
+  .phone { width: 342px; max-width: 100%; margin: 0 auto; background: #faf7f0; border: 1px dashed #8a8474; padding: 12px; }
+  .tag { display: inline-block; font-size: 12px; font-weight: bold; border-radius: 4px; padding: 2px 8px; margin-bottom: 10px; }
+  .before-tag { background: #c82333; color: #fff; }
+  .after-tag { background: #1e7e34; color: #fff; }
+  /* ---- real fixed rules, plain class names, values match app/home-v2.module.css ---- */
+  .viz { border-radius: 8px; height: 132px; border: 1px solid #e2dac8; position: relative; overflow: hidden; background: #fff; }
+  .strat { display: flex; flex-direction: column; height: 100%; }
+  .strat i { flex: 1; display: block; }
+  .strat i:nth-child(1) { background: #f3eee2; }
+  .strat i:nth-child(2) { background: #dce8e4; }
+  .strat i:nth-child(3) { background: #c2d8d2; }
+  .strat i:nth-child(4) { background: #9dbfb8; }
+  .strat i:nth-child(5) { background: #16283e; }
+  .focal { position: absolute; top: 16px; right: 16px; width: 40px; height: 40px; border-radius: 50%; background: #faf7f0; border: 1px solid #c9bfa8; display: flex; align-items: center; justify-content: center; color: #0e7471; font-size: 18px; }
+  .card { background: #fff; border: 1px solid #e2dac8; border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+  .card h3 { font-family: Georgia, serif; color: #16283e; font-size: 20px; line-height: 1.25; margin: 0; }
+  .chip { font-size: 13px; color: #3f5064; background: #fff; border: 1px solid #e2dac8; border-radius: 999px; padding: 6px 12px; min-height: 32px; display: inline-flex; align-items: center; text-decoration: none; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips.tall .chip { min-height: 44px; justify-content: center; }
+  .trust { background: #e9f1ee; border-top: 1px solid #e2dac8; border-bottom: 1px solid #e2dac8; padding: 40px 0; }
+  .trustGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 0; }
+  .stat { display: flex; flex-direction: column; gap: 2px; min-width: 0; padding: 0; }
+  .stat:nth-child(odd) { padding-right: 16px; }
+  .stat:nth-child(even) { padding-left: 16px; border-left: 1px solid #e2dac8; }
+  .stat:nth-child(5) { grid-column: span 2; padding-left: 0; padding-right: 0; border-left: 0; }
+  .statValue { font-family: Georgia, serif; font-size: 24px; color: #0e7471; line-height: 1.1; }
+  .statLabel { font-size: 13px; color: #3f5064; line-height: 1.35; }
+  .ruler { font-size: 12px; color: #5b564a; margin-top: 8px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Home cleanup, slice 1 - before and after</h1>
+  <p class="honest"><b>How to read this page.</b> BEFORE photos are the real live site captured today. AFTER demos are the fixed components rendered with the exact new style values from this slice. This is a component preview, not a full-page render: the full-page photo proof is still blocked because the site cannot boot on this machine (drive nearly full). Nothing here is committed or live on the real site yet.</p>
+
+  <h2>Fix 1: teaser graphic was rendering blank</h2>
+  <p class="why">The layer-strata bands collapsed to zero height, so the first tool card showed an empty white box. The bands now fill the box. Scroll the BEFORE photo down to "Open the lab" to see the blank box on the live site.</p>
+  <div class="shot"><span class="tag before-tag">BEFORE - live site, desktop</span><a href="before-1440.png"><img src="before-1440.png" alt="Before screenshot of live home page on desktop"></a></div>
+  <div class="demo"><span class="tag after-tag">AFTER - fixed component</span>
+    <div class="viz"><span class="strat"><i></i><i></i><i></i><i></i><i></i></span><span class="focal">=</span></div>
+    <p class="src">app/home-v2.module.css: .strat gains height: 100% inside fixed 132px .viz</p>
+  </div>
+
+  <h2>Fix 2: tap targets on thumb-size screens</h2>
+  <p class="why">Link chips were 32px tall, below the 44px house rule. They now stand 44px on narrow screens only. Desktop is pixel-identical.</p>
+  <div class="shot"><span class="tag before-tag">BEFORE - live site, phone width</span><a href="before-390.png"><img src="before-390.png" alt="Before screenshot of live home page on a phone"></a></div>
+  <div class="demo"><span class="tag after-tag">AFTER - fixed component at phone width</span>
+    <div class="phone"><div class="chips tall"><a class="chip" href="#">Saatva Classic</a><a class="chip" href="#">Helix Midnight</a><a class="chip" href="#">WinkBed</a><a class="chip" href="#">All brands</a></div>
+    <p class="ruler">Each chip now measures 44px tall with centered text.</p></div>
+    <p class="src">app/home-v2.module.css: a.chip 44px rule lives inside the max-width 900px block only</p>
+  </div>
+
+  <h2>Fix 3: stats strip breathing room on phones</h2>
+  <p class="why">The five stats crowded into narrow columns. Rows gained air and the center gutter is now symmetric. See the strip under the hero in the BEFORE phone photo.</p>
+  <div class="demo"><span class="tag after-tag">AFTER - fixed component at phone width</span>
+    <div class="phone"><div class="trust"><div class="trustGrid">
+      <div class="stat"><span class="statValue">210</span><span class="statLabel">model configurations charted</span></div>
+      <div class="stat"><span class="statValue">382</span><span class="statLabel">research pages published</span></div>
+      <div class="stat"><span class="statValue">Every</span><span class="statLabel">claim source-linked</span></div>
+      <div class="stat"><span class="statValue">All</span><span class="statLabel">review dates on every page</span></div>
+      <div class="stat"><span class="statValue">0</span><span class="statLabel">physical-test claims</span></div>
+    </div></div></div>
+    <p class="src">app/home-v2.module.css: trustGrid gap 32px rows, symmetric 16px center gutter</p>
+  </div>
+
+  <h2>Fix 4: even card rhythm</h2>
+  <p class="why">A doubled gap (32px) sat above tool-card titles. Now one even 16px step, matching every other card.</p>
+  <div class="demo"><span class="tag after-tag">AFTER - fixed component</span>
+    <div class="card"><div class="viz"><span class="strat"><i></i><i></i><i></i><i></i><i></i></span><span class="focal">=</span></div><h3>Layer stratigraphy explorer</h3></div>
+    <p class="src">app/home-v2.module.css: .viz margin-bottom 16px removed, card gap carries the rhythm</p>
+  </div>
+
+  <h2>Fix 5: search button named for screen readers</h2>
+  <p class="why">On small phones the button collapses to an icon with no text. It now carries its name in code. No visual change at any width.</p>
+  <p class="src">app/page.tsx: aria-label="Search" on the hero submit button</p>
+</div>
+</body>
+</html>
